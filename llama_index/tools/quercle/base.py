@@ -12,6 +12,7 @@ from quercle import (
     QuercleClient,
     tool_metadata,
 )
+from quercle.models import ExtractBodyFormat, RawFetchBodyFormat, RawSearchBodyFormat
 
 
 class QuercleToolSpec(BaseToolSpec):
@@ -132,7 +133,7 @@ class QuercleToolSpec(BaseToolSpec):
         self,
         url: Annotated[str, Field(description=tool_metadata["raw_fetch"]["parameters"]["url"])],
         format: Annotated[
-            str | None,
+            RawFetchBodyFormat | None,
             Field(description=tool_metadata["raw_fetch"]["parameters"]["format"]),
         ] = None,
         use_safeguard: Annotated[
@@ -151,7 +152,7 @@ class QuercleToolSpec(BaseToolSpec):
         self,
         url: Annotated[str, Field(description=tool_metadata["raw_fetch"]["parameters"]["url"])],
         format: Annotated[
-            str | None,
+            RawFetchBodyFormat | None,
             Field(description=tool_metadata["raw_fetch"]["parameters"]["format"]),
         ] = None,
         use_safeguard: Annotated[
@@ -173,7 +174,7 @@ class QuercleToolSpec(BaseToolSpec):
             Field(description=tool_metadata["raw_search"]["parameters"]["query"]),
         ],
         format: Annotated[
-            str | None,
+            RawSearchBodyFormat | None,
             Field(description=tool_metadata["raw_search"]["parameters"]["format"]),
         ] = None,
         use_safeguard: Annotated[
@@ -195,7 +196,7 @@ class QuercleToolSpec(BaseToolSpec):
             Field(description=tool_metadata["raw_search"]["parameters"]["query"]),
         ],
         format: Annotated[
-            str | None,
+            RawSearchBodyFormat | None,
             Field(description=tool_metadata["raw_search"]["parameters"]["format"]),
         ] = None,
         use_safeguard: Annotated[
@@ -215,7 +216,7 @@ class QuercleToolSpec(BaseToolSpec):
         url: Annotated[str, Field(description=tool_metadata["extract"]["parameters"]["url"])],
         query: Annotated[str, Field(description=tool_metadata["extract"]["parameters"]["query"])],
         format: Annotated[
-            str | None,
+            ExtractBodyFormat | None,
             Field(description=tool_metadata["extract"]["parameters"]["format"]),
         ] = None,
         use_safeguard: Annotated[
@@ -235,7 +236,7 @@ class QuercleToolSpec(BaseToolSpec):
         url: Annotated[str, Field(description=tool_metadata["extract"]["parameters"]["url"])],
         query: Annotated[str, Field(description=tool_metadata["extract"]["parameters"]["query"])],
         format: Annotated[
-            str | None,
+            ExtractBodyFormat | None,
             Field(description=tool_metadata["extract"]["parameters"]["format"]),
         ] = None,
         use_safeguard: Annotated[
